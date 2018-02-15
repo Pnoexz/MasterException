@@ -22,10 +22,8 @@ class ComposerStaticInite122e2350b7812d397fa335c4ba4ab99
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-        ),
-        'M' => 
-        array (
-            'MasterException\\' => 16,
+            'Pnoexz\\ApiExceptionTests\\' => 25,
+            'Pnoexz\\' => 7,
         ),
         'D' => 
         array (
@@ -49,7 +47,11 @@ class ComposerStaticInite122e2350b7812d397fa335c4ba4ab99
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'MasterException\\' => 
+        'Pnoexz\\ApiExceptionTests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests/unit',
+        ),
+        'Pnoexz\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

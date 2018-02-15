@@ -4,12 +4,12 @@
  * @license GPL v3.0
  */
 
-namespace MasterException;
+namespace Pnoexz;
 
 /**
- * @package MasterException
+ * @package ApiException
  */
-abstract class MasterException extends \Exception implements
+abstract class ApiException extends \Exception implements
     \JsonSerializable
 {
     /**
@@ -44,15 +44,18 @@ abstract class MasterException extends \Exception implements
     protected $data = [];
 
     /**
-     * MasterException constructor.
+     * ApiException constructor.
      *
-     * @param array $data
+     * @param array           $data
+     * @param \Throwable|null $previous
      */
-    public function __construct(array $data = [])
+    public function __construct(array $data = [], \Throwable $previous = null)
     {
         if (!empty($data)) {
             $this->data = $data;
         }
+
+        parent::__construct($this->message, null, $previous);
     }
 
     /**

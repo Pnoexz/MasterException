@@ -1,5 +1,5 @@
 {
-    "name": "pnoexz/master-exception",
+    "name": "pnoexz/php-api-exception",
     "type": "library",
     "description": "PHP Exceptions",
     "license": "GPL-3.0-only",
@@ -12,7 +12,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MasterException\\": "src/"
+            "Pnoexz\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pnoexz\\ApiExceptionTests\\": "tests/unit/"
         }
     },
     "authors": [
