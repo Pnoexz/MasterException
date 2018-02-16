@@ -6,14 +6,11 @@
 
 namespace Pnoexz\ApiException\Http;
 
-abstract class NotFoundException extends \Pnoexz\ApiException
+abstract class NotFoundException extends ClientErrorException
 {
     /** @var string */
     protected $message = 'Not found.';
 
     /** @var int */
     protected $httpStatus = 404;
-
-    /** @var string */
-    protected $level = \Psr\Log\LogLevel::WARNING;
 }

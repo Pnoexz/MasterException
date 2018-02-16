@@ -22,6 +22,7 @@ class ComposerStaticInite122e2350b7812d397fa335c4ba4ab99
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Pnoexz\\ApiException\\Http\\' => 25,
             'Pnoexz\\ApiExceptionTests\\' => 25,
             'Pnoexz\\' => 7,
         ),
@@ -46,6 +47,10 @@ class ComposerStaticInite122e2350b7812d397fa335c4ba4ab99
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Pnoexz\\ApiException\\Http\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Http',
         ),
         'Pnoexz\\ApiExceptionTests\\' => 
         array (
