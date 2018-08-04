@@ -4,7 +4,7 @@
  * @license GPL v3.0
  */
 
-namespace Pnoexz\ApiException\Http;
+namespace Pnoexz\ApiException\Http\ClientError;
 
 abstract class ClientErrorException extends \Pnoexz\ApiException
 {

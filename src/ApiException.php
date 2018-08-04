@@ -27,7 +27,7 @@ abstract class ApiException extends \Exception implements
      *
      * @var int
      */
-    protected $httpStatus = 500;
+    protected $statusCode = 500;
 
     /**
      * A default PSR-3 compliant level for the exception if none is given.
@@ -91,9 +91,9 @@ abstract class ApiException extends \Exception implements
     /**
      * @return int
      */
-    public function getHttpStatus(): int
+    public function getStatusCode(): int
     {
-        return $this->httpStatus;
+        return $this->statusCode;
     }
 
     /**
@@ -112,7 +112,7 @@ abstract class ApiException extends \Exception implements
         $output = [
             'class' => get_class($this),
             'message' => $this->message,
-            'httpStatusCode' => $this->httpStatus,
+            'statusCode' => $this->statusCode,
         ];
 
         if (!empty($this->data)) {
@@ -145,7 +145,7 @@ abstract class ApiException extends \Exception implements
         $stream = $stream->write(json_encode($this));
 
         return $response
-            ->withStatus($this->httpStatus)
+            ->withStatus($this->statusCode)
             ->withHeader("Content-type", "application/json")
             ->withBody($stream);
     }
