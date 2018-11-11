@@ -1,7 +1,7 @@
 <?php
 /**
  * @author  Matias Pino <pnoexz@gmail.com>
- * @license GPL v3.0
+ * @license MIT
  */
 
 namespace Pnoexz\ApiException\Http\ServerError;
