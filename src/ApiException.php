@@ -47,13 +47,13 @@ abstract class ApiException extends \Exception implements
     /**
      * ApiException constructor.
      *
-     * @param array           $data     Any JSON serializable data we should
+     * @param array|null      $data     Any JSON serializable data we should
      *                                  send to the user along with the built-in
      *                                  information
      * @param \Throwable|null $previous The previous exception thrown to
      *                                  maintain the exception chain
      */
-    public function __construct(array $data = [], \Throwable $previous = null)
+    public function __construct(?array $data = [], \Throwable $previous = null)
     {
         if (!empty($data)) {
             $this->data = $data;

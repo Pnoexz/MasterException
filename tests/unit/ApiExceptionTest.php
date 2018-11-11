@@ -17,7 +17,8 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
      */
     public function extendsException()
     {
-        $mockException = new class extends ApiException {};
+        $mockException = new class extends ApiException {
+        };
         $this->assertInstanceOf('\Exception', $mockException);
     }
 
@@ -26,7 +27,6 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
      */
     public function mantainsPreviousException()
     {
-
         $previousException = new \Exception('Previous');
         $mockException = new ApiExceptionMock([], $previousException);
 
@@ -146,6 +146,14 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('data', $jsonArray);
         $this->assertArrayHasKey('testing', $jsonArray['data']);
         $this->assertSame(true, $jsonArray['data']['testing']);
+    }
 
+    /**
+     * @test
+     */
+    public function dataCanBeNull()
+    {
+        $mockException = new ApiExceptionMock(null);
+        $this->assertInstanceOf('\Exception', $mockException);
     }
 }
