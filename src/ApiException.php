@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author  Matias Pino <pnoexz@gmail.com>
  * @license GPL v3.0
@@ -46,8 +47,11 @@ abstract class ApiException extends \Exception implements
     /**
      * ApiException constructor.
      *
-     * @param array           $data
-     * @param \Throwable|null $previous
+     * @param array           $data     Any JSON serializable data we should
+     *                                  send to the user along with the built-in
+     *                                  information
+     * @param \Throwable|null $previous The previous exception thrown to
+     *                                  maintain the exception chain
      */
     public function __construct(array $data = [], \Throwable $previous = null)
     {
@@ -129,25 +133,4 @@ abstract class ApiException extends \Exception implements
     {
         return $this->message;
     }
-
-    /*
-     * @TODO in master exception stand alone
-     *
-    public function populateResponseObject(
-        \Psr\Http\Message\MessageInterface $response,
-        \Psr\Http\Message\StreamInterface $stream
-    ) {
-        if (!$stream->isWritable()) {
-            throw new \InvalidArgumentException(
-                'The stream is not writable'
-            );
-        }
-        $stream = $stream->write(json_encode($this));
-
-        return $response
-            ->withStatus($this->statusCode)
-            ->withHeader("Content-type", "application/json")
-            ->withBody($stream);
-    }
-    */
 }
