@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author  Matias Pino <pnoexz@gmail.com>
- * @license MIT
- */
 
 namespace Pnoexz;
 
