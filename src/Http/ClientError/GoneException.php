@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class GoneException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Gone';
-
-    /** @var int */
-    protected $statusCode = 410;
+    protected string $typedMessage = 'Gone';
+    protected int $statusCode = 410;
 }

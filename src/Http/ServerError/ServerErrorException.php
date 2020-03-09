@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 abstract class ServerErrorException extends \Pnoexz\ApiException
 {
-    /** @var string */
-    protected $level = \Psr\Log\LogLevel::ERROR;
+    protected string $level = \Psr\Log\LogLevel::ERROR;
 }

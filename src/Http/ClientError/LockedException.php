@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class LockedException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Locked';
-
-    /** @var int */
-    protected $statusCode = 423;
+    protected string $typedMessage = 'Locked';
+    protected int $statusCode = 423;
 }

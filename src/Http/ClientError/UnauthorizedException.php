@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class UnauthorizedException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Unauthorized';
-
-    /** @var int */
-    protected $statusCode = 401;
+    protected string $typedMessage = 'Unauthorized';
+    protected int $statusCode = 401;
 }

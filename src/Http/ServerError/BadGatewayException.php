@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class BadGatewayException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Bad Gateway';
-
-    /** @var int */
-    protected $statusCode = 502;
+    protected string $typedMessage = 'Bad Gateway';
+    protected int $statusCode = 502;
 }

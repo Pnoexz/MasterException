@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class MethodNotAllowedException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Method Not Allowed';
-
-    /** @var int */
-    protected $statusCode = 405;
+    protected string $typedMessage = 'Method Not Allowed';
+    protected int $statusCode = 405;
 }

@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ForbiddenException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Forbidden';
-
-    /** @var int */
-    protected $statusCode = 403;
+    protected string $typedMessage = 'Forbidden';
+    protected int $statusCode = 403;
 }

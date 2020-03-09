@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class ServiceUnavailableException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Service Unavailable';
-
-    /** @var int */
-    protected $statusCode = 503;
+    protected string $typedMessage = 'Service Unavailable';
+    protected int $statusCode = 503;
 }

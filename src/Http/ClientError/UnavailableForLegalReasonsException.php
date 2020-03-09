@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class UnavailableForLegalReasonsException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Unavailable For Legal Reasons';
-
-    /** @var int */
-    protected $statusCode = 451;
+    protected string $typedMessage = 'Unavailable For Legal Reasons';
+    protected int $statusCode = 451;
 }

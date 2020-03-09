@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiExceptionTests;
 
 use Pnoexz\ApiException;
 use Pnoexz\ApiException\Http\ServerError\ServerErrorException;
-use Psr\Log\LogLevel;
 
 class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
      */
-    public function internalServerErrorException()
+    public function internalServerErrorException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\InternalServerErrorException();
         $this->assertSame(500, $exception->getStatusCode());
@@ -23,7 +24,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function notImplementedException()
+    public function notImplementedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\NotImplementedException();
         $this->assertSame(501, $exception->getStatusCode());
@@ -35,7 +36,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function badGatewayException()
+    public function badGatewayException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\BadGatewayException();
         $this->assertSame(502, $exception->getStatusCode());
@@ -47,7 +48,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function serviceUnavailableException()
+    public function serviceUnavailableException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\ServiceUnavailableException();
         $this->assertSame(503, $exception->getStatusCode());
@@ -59,7 +60,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function gatewayTimeoutException()
+    public function gatewayTimeoutException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\GatewayTimeoutException();
         $this->assertSame(504, $exception->getStatusCode());
@@ -71,7 +72,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function httpVersionNotSupportedException()
+    public function httpVersionNotSupportedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\HttpVersionNotSupportedException();
         $this->assertSame(505, $exception->getStatusCode());
@@ -83,7 +84,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function variantAlsoNegotiatesException()
+    public function variantAlsoNegotiatesException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\VariantAlsoNegotiatesException();
         $this->assertSame(506, $exception->getStatusCode());
@@ -95,7 +96,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function insufficientStorageException()
+    public function insufficientStorageException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\InsufficientStorageException();
         $this->assertSame(507, $exception->getStatusCode());
@@ -107,7 +108,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function loopDetectedException()
+    public function loopDetectedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\LoopDetectedException();
         $this->assertSame(508, $exception->getStatusCode());
@@ -119,7 +120,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function notExtendedException()
+    public function notExtendedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\NotExtendedException();
         $this->assertSame(510, $exception->getStatusCode());
@@ -131,7 +132,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function networkAuthenticationRequiredException()
+    public function networkAuthenticationRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\NetworkAuthenticationRequiredException();
         $this->assertSame(511, $exception->getStatusCode());
@@ -143,7 +144,7 @@ class ServerErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function networkConnectTimeoutErrorException()
+    public function networkConnectTimeoutErrorException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ServerError\NetworkConnectTimeoutErrorException();
         $this->assertSame(599, $exception->getStatusCode());

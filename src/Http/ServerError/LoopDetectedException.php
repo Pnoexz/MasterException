@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class LoopDetectedException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Loop Detected';
-
-    /** @var int */
-    protected $statusCode = 508;
+    protected string $typedMessage = 'Loop Detected';
+    protected int $statusCode = 508;
 }

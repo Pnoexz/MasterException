@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class BadRequestException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Bad Request';
-
-    /** @var int */
-    protected $statusCode = 400;
+    protected string $typedMessage = 'Bad Request';
+    protected int $statusCode = 400;
 }

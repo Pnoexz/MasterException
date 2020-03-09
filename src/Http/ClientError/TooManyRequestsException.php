@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class TooManyRequestsException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Too Many Requests';
-
-    /** @var int */
-    protected $statusCode = 429;
+    protected string $typedMessage = 'Too Many Requests';
+    protected int $statusCode = 429;
 }

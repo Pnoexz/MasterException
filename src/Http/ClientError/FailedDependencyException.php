@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class FailedDependencyException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Failed Dependency';
-
-    /** @var int */
-    protected $statusCode = 424;
+    protected string $typedMessage = 'Failed Dependency';
+    protected int $statusCode = 424;
 }

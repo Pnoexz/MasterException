@@ -1,15 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiExceptionTests;
 
 class ApiExceptionMock extends \Pnoexz\ApiException
 {
-    /** @var string */
-    protected $message = 'Example message';
-
-    /** @var int */
-    protected $httpStatus = 404;
-
-    /** @var string */
-    protected $level = \Psr\Log\LogLevel::WARNING;
+    protected string $typedMessage = 'Example message';
+    protected int $statusCode = 404;
+    protected string $level = \Psr\Log\LogLevel::WARNING;
 }

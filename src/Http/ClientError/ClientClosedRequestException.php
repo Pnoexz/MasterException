@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ClientClosedRequestException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Client Closed Request';
-
-    /** @var int */
-    protected $statusCode = 499;
+    protected string $typedMessage = 'Client Closed Request';
+    protected int $statusCode = 499;
 }

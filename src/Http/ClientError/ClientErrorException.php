@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 abstract class ClientErrorException extends \Pnoexz\ApiException
 {
-    /** @var string */
-    protected $level = \Psr\Log\LogLevel::WARNING;
+    protected string $level = \Psr\Log\LogLevel::WARNING;
 }

@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ImATeapotException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = "I'm a teapot";
-
-    /** @var int */
-    protected $statusCode = 418;
+    protected string $typedMessage = "I'm a teapot";
+    protected int $statusCode = 418;
 }

@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class RequestHeaderFieldsTooLargeException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Request Header Fields Too Large';
-
-    /** @var int */
-    protected $statusCode = 431;
+    protected string $typedMessage = 'Request Header Fields Too Large';
+    protected int $statusCode = 431;
 }

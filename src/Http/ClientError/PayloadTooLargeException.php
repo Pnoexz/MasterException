@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class PayloadTooLargeException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Payload Too Large';
-
-    /** @var int */
-    protected $statusCode = 413;
+    protected string $typedMessage = 'Payload Too Large';
+    protected int $statusCode = 413;
 }

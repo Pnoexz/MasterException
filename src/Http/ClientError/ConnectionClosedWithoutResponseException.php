@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ConnectionClosedWithoutResponseException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Connection Closed Without Response';
-
-    /** @var int */
-    protected $statusCode = 444;
+    protected string $typedMessage = 'Connection Closed Without Response';
+    protected int $statusCode = 444;
 }

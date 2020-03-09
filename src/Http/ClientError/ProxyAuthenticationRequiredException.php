@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ProxyAuthenticationRequiredException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Proxy Authentication Required';
-
-    /** @var int */
-    protected $statusCode = 407;
+    protected string $typedMessage = 'Proxy Authentication Required';
+    protected int $statusCode = 407;
 }

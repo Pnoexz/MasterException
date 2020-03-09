@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class InsufficientStorageException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Insufficient Storage';
-
-    /** @var int */
-    protected $statusCode = 507;
+    protected string $typedMessage = 'Insufficient Storage';
+    protected int $statusCode = 507;
 }

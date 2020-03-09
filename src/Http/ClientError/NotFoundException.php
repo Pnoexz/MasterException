@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class NotFoundException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Not Found';
-
-    /** @var int */
-    protected $statusCode = 404;
+    protected string $typedMessage = 'Not Found';
+    protected int $statusCode = 404;
 }

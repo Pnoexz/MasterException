@@ -1,132 +1,102 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Pnoexz;
 
-/**
- * @package ApiException
- */
 abstract class ApiException extends \Exception implements
     \JsonSerializable
 {
     /**
      * Contains the human readable your consumer SHOULD display in case no
      * translation is available.
-     *
-     * @var string
      */
-    protected $message;
+    protected string $typedMessage;
 
     /**
      * The default HTTP status code to send in the headers if none is given.
      * It's RECOMMENDED that you set this value for each exception.
      * For more information, visit: https://httpstatuses.com/
-     *
-     * @var int
      */
-    protected $statusCode = 500;
+    protected int $statusCode = 500;
 
     /**
      * A default PSR-3 compliant level for the exception if none is given.
      * It's RECOMMENDED that you set this value for each exception.
      * For more information, visit: https://www.php-fig.org/psr/psr-3/
-     *
-     * @var string
      */
-    protected $level = \Psr\Log\LogLevel::ERROR;
+    protected string $level = \Psr\Log\LogLevel::ERROR;
 
     /**
-     * @var array
+     * @var array<mixed>|null
      */
-    protected $data = [];
+    protected array $data = [];
 
     /**
-     * ApiException constructor.
-     *
-     * @param array|null      $data     Any JSON serializable data we should
+     * @param array<mixed>|null $data   Any JSON serializable data we should
      *                                  send to the user along with the built-in
      *                                  information
      * @param \Throwable|null $previous The previous exception thrown to
      *                                  maintain the exception chain
      */
-    public function __construct(?array $data = [], \Throwable $previous = null)
+    public function __construct(?array $data = [], ?\Throwable $previous = null)
     {
-        if (!empty($data)) {
+        if (!\is_null($data) && \is_countable($data) && \count($data) > 0) {
             $this->data = $data;
         }
 
-        parent::__construct($this->message, null, $previous);
+        parent::__construct($this->typedMessage, 0, $previous);
     }
 
-    /**
-     * @return array
-     */
-    public function getData()
+    public function getData(): array
     {
         return $this->data;
     }
 
     /**
-     * @param array $newData
-     *
+     * @param array<mixed> $newData
      * @return self
      */
-    public function setData(array $newData)
+    public function setData(array $newData): self
     {
         $this->data = $newData;
+
         return $this;
     }
 
     /**
-     * @param array $moreData
-     *
+     * @param array<mixed> $moreData
      * @return self
      */
-    public function appendData(array $moreData)
+    public function appendData(array $moreData): self
     {
-        $this->data = array_merge($this->data, $moreData);
+        $this->data = \array_merge($this->data, $moreData);
+
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
-    /**
-     * @return string
-     */
     public function getLevel(): string
     {
         return $this->level;
     }
 
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $output = [
-            'class' => get_class($this),
+            'class' => \get_class($this),
             'message' => $this->message,
             'statusCode' => $this->statusCode,
         ];
 
-        if (!empty($this->data)) {
+        if (\count($this->data) > 0) {
             $output['data'] = $this->data;
         }
 
         return $output;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return $this->message;
     }
 }

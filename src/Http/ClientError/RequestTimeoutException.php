@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class RequestTimeoutException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Request Timeout';
-
-    /** @var int */
-    protected $statusCode = 408;
+    protected string $typedMessage = 'Request Timeout';
+    protected int $statusCode = 408;
 }

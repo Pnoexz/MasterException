@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ClientError;
 
 class ExpectationFailedException extends ClientErrorException
 {
-    /** @var string */
-    protected $message = 'Expectation Failed';
-
-    /** @var int */
-    protected $statusCode = 417;
+    protected string $typedMessage = 'Expectation Failed';
+    protected int $statusCode = 417;
 }

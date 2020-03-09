@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class HttpVersionNotSupportedException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'HTTP Version Not Supported';
-
-    /** @var int */
-    protected $statusCode = 505;
+    protected string $typedMessage = 'HTTP Version Not Supported';
+    protected int $statusCode = 505;
 }

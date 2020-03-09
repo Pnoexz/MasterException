@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Pnoexz\ApiExceptionTests;
 
@@ -11,9 +12,10 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function extendsException()
+    public function extendsException(): void
     {
-        $mockException = new class extends ApiException {
+        $mockException = new class extends ApiException{
+            protected string $typedMessage = 'Exception';
         };
         $this->assertInstanceOf('\Exception', $mockException);
     }
@@ -21,7 +23,7 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function mantainsPreviousException()
+    public function mantainsPreviousException(): void
     {
         $previousException = new \Exception('Previous');
         $mockException = new ApiExceptionMock([], $previousException);
@@ -32,7 +34,7 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function canHandleDataInConstructor()
+    public function canHandleDataInConstructor(): void
     {
         $data = ['testing' => true];
         $mockException = new ApiExceptionMock($data);
@@ -43,7 +45,7 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function canSetDataWithMethod()
+    public function canSetDataWithMethod(): void
     {
         $data = ['testing' => true];
         $mockException = new ApiExceptionMock();
@@ -55,14 +57,14 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function canAppendDataWithMethod()
+    public function canAppendDataWithMethod(): void
     {
         $data = ['testing' => true];
         $dataToAppend = ['foo' => 'bar'];
         $mockException = new ApiExceptionMock($data);
         $mockException->appendData($dataToAppend);
 
-        $expectedData = array_merge($data, $dataToAppend);
+        $expectedData = \array_merge($data, $dataToAppend);
 
         $this->assertSame($expectedData, $mockException->getData());
     }
@@ -70,27 +72,10 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function exceptionCanBeCastedToString()
+    public function canRetrieveStatusCode(): void
     {
-        /** @var ApiException $mockException */
-        $mockException = new class extends ApiException {
-            protected $message = "Actual exception message.";
-        };
-
-        $this->assertSame(
-            "Actual exception message.",
-            (string) $mockException
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function canRetrieveHttpStatus()
-    {
-        /** @var ApiException $mockException */
-        $mockException = new class extends ApiException {
-            protected $statusCode = 201;
+        $mockException = new class extends ApiExceptionMock {
+            protected int $statusCode = 201;
         };
 
         $this->assertSame(201, $mockException->getStatusCode());
@@ -99,11 +84,10 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function canRetrieveLevel()
+    public function canRetrieveLevel(): void
     {
-        /** @var ApiException $mockException */
-        $mockException = new class extends ApiException {
-            protected $level = LogLevel::WARNING;
+        $mockException = new class extends ApiExceptionMock {
+            protected string $level = LogLevel::WARNING;
         };
 
         $this->assertSame(LogLevel::WARNING, $mockException->getLevel());
@@ -112,30 +96,27 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function canBeJsonEncoded()
+    public function canBeJsonEncoded(): void
     {
-        /** @var ApiException $mockException */
         $mockException = new class extends ApiException {
-            protected $message = "Exception message.";
-            protected $httpStatus = 400;
-            protected $level = LogLevel::ERROR;
+            protected string $typedMessage = "Exception message.";
+            protected int $statusCode = 400;
+            protected string $level = LogLevel::ERROR;
         };
 
-        $this->assertJson(
-            json_encode($mockException)
-        );
+        $this->assertJson(\json_encode($mockException));
     }
 
     /**
      * @test
      */
-    public function dataIsAlsoExportedToJson()
+    public function dataIsAlsoExportedToJson(): void
     {
         $data = ['testing' => true];
         $mockException = new ApiExceptionMock($data);
 
-        $jsonString = json_encode($mockException);
-        $jsonArray = json_decode($jsonString, true);
+        $jsonString = \json_encode($mockException);
+        $jsonArray = \json_decode($jsonString, true);
 
         $this->assertJson($jsonString);
         $this->assertInternalType('array', $jsonArray);
@@ -147,7 +128,7 @@ class ApiExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function dataCanBeNull()
+    public function dataCanBeNull(): void
     {
         $mockException = new ApiExceptionMock(null);
         $this->assertInstanceOf('\Exception', $mockException);

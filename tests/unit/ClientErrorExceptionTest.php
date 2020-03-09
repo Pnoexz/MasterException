@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiExceptionTests;
 
 use Pnoexz\ApiException;
@@ -10,7 +12,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function badRequestException()
+    public function badRequestException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\BadRequestException();
         $this->assertSame(400, $exception->getStatusCode());
@@ -22,7 +24,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function unauthorizedException()
+    public function unauthorizedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\UnauthorizedException();
         $this->assertSame(401, $exception->getStatusCode());
@@ -34,7 +36,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function paymentRequiredException()
+    public function paymentRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\PaymentRequiredException();
         $this->assertSame(402, $exception->getStatusCode());
@@ -46,7 +48,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function forbiddenException()
+    public function forbiddenException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ForbiddenException();
         $this->assertSame(403, $exception->getStatusCode());
@@ -58,7 +60,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function notFoundException()
+    public function notFoundException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\NotFoundException();
         $this->assertSame(404, $exception->getStatusCode());
@@ -70,7 +72,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function methodNotAllowedException()
+    public function methodNotAllowedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\MethodNotAllowedException();
         $this->assertSame(405, $exception->getStatusCode());
@@ -82,7 +84,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function notAcceptableException()
+    public function notAcceptableException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\NotAcceptableException();
         $this->assertSame(406, $exception->getStatusCode());
@@ -94,7 +96,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function proxyAuthenticationRequiredException()
+    public function proxyAuthenticationRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ProxyAuthenticationRequiredException();
         $this->assertSame(407, $exception->getStatusCode());
@@ -106,7 +108,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function requestTimeoutException()
+    public function requestTimeoutException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\RequestTimeoutException();
         $this->assertSame(408, $exception->getStatusCode());
@@ -118,7 +120,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function conflictException()
+    public function conflictException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ConflictException();
         $this->assertSame(409, $exception->getStatusCode());
@@ -130,7 +132,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function goneException()
+    public function goneException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\GoneException();
         $this->assertSame(410, $exception->getStatusCode());
@@ -142,7 +144,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function lengthRequiredException()
+    public function lengthRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\LengthRequiredException();
         $this->assertSame(411, $exception->getStatusCode());
@@ -154,7 +156,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function preconditionFailedException()
+    public function preconditionFailedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\PreconditionFailedException();
         $this->assertSame(412, $exception->getStatusCode());
@@ -166,7 +168,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function payloadTooLargeException()
+    public function payloadTooLargeException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\PayloadTooLargeException();
         $this->assertSame(413, $exception->getStatusCode());
@@ -178,7 +180,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function requestUriTooLongException()
+    public function requestUriTooLongException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\RequestUriTooLongException();
         $this->assertSame(414, $exception->getStatusCode());
@@ -190,7 +192,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function unsupportedMediaTypeException()
+    public function unsupportedMediaTypeException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\UnsupportedMediaTypeException();
         $this->assertSame(415, $exception->getStatusCode());
@@ -202,7 +204,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function requestedRangeNotSatisExceptionfiable()
+    public function requestedRangeNotSatisExceptionfiable(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\RequestedRangeNotSatisfiableException();
         $this->assertSame(416, $exception->getStatusCode());
@@ -214,7 +216,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function expectationFailedException()
+    public function expectationFailedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ExpectationFailedException();
         $this->assertSame(417, $exception->getStatusCode());
@@ -226,7 +228,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function imATeapotException()
+    public function imATeapotException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ImATeapotException();
         $this->assertSame(418, $exception->getStatusCode());
@@ -238,7 +240,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function misdirectedRequestException()
+    public function misdirectedRequestException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\MisdirectedRequestException();
         $this->assertSame(421, $exception->getStatusCode());
@@ -250,7 +252,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function unprocessableEntityException()
+    public function unprocessableEntityException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\UnprocessableEntityException();
         $this->assertSame(422, $exception->getStatusCode());
@@ -262,7 +264,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function lockedException()
+    public function lockedException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\LockedException();
         $this->assertSame(423, $exception->getStatusCode());
@@ -274,7 +276,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function failedDependencyException()
+    public function failedDependencyException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\FailedDependencyException();
         $this->assertSame(424, $exception->getStatusCode());
@@ -286,7 +288,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function upgradeRequiredException()
+    public function upgradeRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\UpgradeRequiredException();
         $this->assertSame(426, $exception->getStatusCode());
@@ -298,7 +300,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function preconditionRequiredException()
+    public function preconditionRequiredException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\PreconditionRequiredException();
         $this->assertSame(428, $exception->getStatusCode());
@@ -310,7 +312,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function tooManyRequestsException()
+    public function tooManyRequestsException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\TooManyRequestsException();
         $this->assertSame(429, $exception->getStatusCode());
@@ -322,7 +324,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function requestHeaderFieldsTooExceptionLarge()
+    public function requestHeaderFieldsTooExceptionLarge(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\RequestHeaderFieldsTooLargeException();
         $this->assertSame(431, $exception->getStatusCode());
@@ -334,7 +336,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function connectionClosedWithouExceptiontResponse()
+    public function connectionClosedWithouExceptiontResponse(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ConnectionClosedWithoutResponseException();
         $this->assertSame(444, $exception->getStatusCode());
@@ -346,7 +348,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function unavailableForLegalReaExceptionsons()
+    public function unavailableForLegalReaExceptionsons(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\UnavailableForLegalReasonsException();
         $this->assertSame(451, $exception->getStatusCode());
@@ -358,7 +360,7 @@ class ClientErrorExceptionTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function clientClosedRequestException()
+    public function clientClosedRequestException(): void
     {
         $exception = new \Pnoexz\ApiException\Http\ClientError\ClientClosedRequestException();
         $this->assertSame(499, $exception->getStatusCode());

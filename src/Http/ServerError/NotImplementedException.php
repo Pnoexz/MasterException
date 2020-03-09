@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class NotImplementedException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Not Implemented';
-
-    /** @var int */
-    protected $statusCode = 501;
+    protected string $typedMessage = 'Not Implemented';
+    protected int $statusCode = 501;
 }

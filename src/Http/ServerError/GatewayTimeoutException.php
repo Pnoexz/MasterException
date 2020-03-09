@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Pnoexz\ApiException\Http\ServerError;
 
 class GatewayTimeoutException extends ServerErrorException
 {
-    /** @var string */
-    protected $message = 'Gateway Timeout';
-
-    /** @var int */
-    protected $statusCode = 504;
+    protected string $typedMessage = 'Gateway Timeout';
+    protected int $statusCode = 504;
 }
